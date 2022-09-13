@@ -39,6 +39,5 @@ def Validation(sarray, lenght):
     return 1 if len(sarray) == lenght else 0
 
 
-
 print(init())
 #print(ChangeColn([[0,2,3],[1,5,6],[1,8,9]], 1, [1,2,3]))
