@@ -1,5 +1,7 @@
-# Programma per ricavare soluzioni sistemi lineari - Riccardo Manoni
-import Inversa, Determinante
+# modulo soluzioni sistemi lineari - Riccardo Manoni
+
+from Inversa import MontanteBareiss
+import Matrice, Determinante
 
 def ChangeColn(matrix, index, coln):
     m2 = [row[:] for row in matrix]
@@ -15,29 +17,13 @@ def Cramer(A, B): # A = matrice coefficienti, B = vettore termini noti
         solutions.append(Determinante.DetMatrice(ChangeColn(A, i, B),0,0)/Det)
     return solutions
 
-def SisMatrix(Matrix, n, m, count):
-    if m == 0:
-        return Matrix
-    else:
-        v = []
-        rows = input("Insert " + str(count-m) + "st row: ")
-        if Validation(rows.split(","), n):
-            for num in rows.split(","):
-                v.append(num)
-            Matrix.append(v)
-            return SisMatrix(Matrix, n, m-1, count)
-        else:
-            print("Not Allowed!" + "TIP(3 var) -> x,y,z")
-            return SisMatrix(Matrix, n, m, count)
-
-def init():
-    var = input("Insert number of variables: ")
+def initSis():
     eq = input("Insert number of equations: ")
-    return SisMatrix([], int(var), int(eq), int(eq)+1)
+    var = input("Insert number of variables: ")
+    return Matrice.createMatrix(int(eq), int(var))
 
-def Validation(sarray, lenght):
-    return 1 if len(sarray) == lenght else 0
+def CalcSol(m):
+    Matrice.printMatrix(MontanteBareiss(m, 0))
 
-
-print(init())
+CalcSol([[1,2,3],[2,2,1]]) # SOL -> x=-2 , y=5/2
 #print(ChangeColn([[0,2,3],[1,5,6],[1,8,9]], 1, [1,2,3]))
