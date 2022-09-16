@@ -64,21 +64,24 @@ def Transpose(matrix):
 def SubMatrix(matrix, initrow, endrow, initcoln, endcoln):
     x = len(matrix) # righe matrix
     y = len(matrix[0]) # colonne matrix
-    m2 = [] # matrix di supporto
+    m2 = [] # matrice di supporto
+    v = [] # vettore di supporto
     if initrow <= x and endrow <= x and initrow < endrow:
         if initcoln <= y and endcoln <= y and initcoln < endcoln:
-            for i in range(initrow, endrow, 1):
-                v = []
-                for j in range(initcoln, endcoln, 1):
+            for i in range(initrow, endrow):
+                for j in range(initcoln, endcoln):
                     #print("i: "+str(i)+" j: "+str(j))
                     v.append(matrix[i][j])
-                m2.append(v)
-            return m2
+                if j-initcoln > 0: # se aggiungo a v piu di un elemento
+                    m2.append(v) # lo aggiungo a m2
+                    v = [] # resetto il vettore
+            return m2 if len(v) == 0 else v
         else:
-            print("indexes not allowed!")
+            print("indexes colns not allowed!")
             return -1
     else:
-        print("indexes not allowed!")
+        print("indexes rows not allowed!")
         return -1
 
+#print(SubMatrix([[1,2,3],[1,2,2]], 0, 2, 2, 3))
 #printMatrix(Transpose([[1,2,3],[4,5,6],[7,8,9]]))

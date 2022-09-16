@@ -13,7 +13,7 @@ def MontanteBareiss(m, k):
                     m2[i][j] = m[k][k]*m[i][j]-m[i][k]*m[k][j]
                 else:
                     m2[i][j] = (m[k][k]*m[i][j]-m[i][k]*m[k][j])/m[k-1][k-1]
-        Matrice.printMatrix(m2)
+        #Matrice.printMatrix(m2)
         if k > 0:
             i = k-1 # indice righe per triangolare superiore
             while i >= 0:
