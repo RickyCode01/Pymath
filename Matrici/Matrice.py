@@ -1,4 +1,4 @@
-# creazione Matrici python -> Riccardo Manoni
+# modulo creazione Matrici - Riccardo Manoni
 
 def createMatrix(dimX, dimY):
     matrix = []

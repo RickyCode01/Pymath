@@ -1,4 +1,4 @@
-#modulo calcolo matrice inversa - Riccardo Manoni
+# modulo calcolo matrice inversa - Riccardo Manoni
 
 import Matrice, Determinante
 
